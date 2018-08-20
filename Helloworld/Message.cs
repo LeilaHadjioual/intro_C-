@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Helloworld
 {
-    class Message
+   public class Message
     {
         private int matin = 9;    
         private int midi = 13;
@@ -36,11 +36,11 @@ namespace Helloworld
             {
                 Console.WriteLine("Bon week-end " + userName);
             }
-            else if (localDate.Hour >= soir | localDate.Hour <= matin)
+            else if (localDate.Hour > soir | localDate.Hour < matin)
             {
                 Console.WriteLine("Bonsoir " + userName + "\n" + localDate.ToString("F"));
             }
-            else if (localDate.Hour >= midi | localDate.Hour <= soir)
+            else if (localDate.Hour >= midi | localDate.Hour < soir)
             {
                 Console.WriteLine("Bon après-midi " + userName + "\n" + localDate.ToString("F"));
             }
