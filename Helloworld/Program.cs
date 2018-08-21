@@ -13,7 +13,7 @@ namespace Helloworld
             do
             {
                 Message msg = new Message(9, 13, 18);
-                msg.GetHelloMessage();
+                Console.WriteLine(msg.GetHelloMessage(DateTime.Now));
             }
             while (Console.ReadLine() != "exit");
         }

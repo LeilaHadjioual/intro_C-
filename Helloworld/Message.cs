@@ -15,11 +15,12 @@ namespace Helloworld
         //récupère le nom utilisateur
         String userName = System.Environment.UserName;
 
-        //récupère la date det heure du jour
-        DateTime localDate = DateTime.Now;
+        //récupère la date et heure du jour + utile pour test méthode sans argument
+        //DateTime localDate = DateTime.Now;
 
         //récupère les jours de la semaine
-        DayOfWeek today = DateTime.Today.DayOfWeek;
+        //DayOfWeek today = DateTime.Today.DayOfWeek;
+        
 
         //constructeur
         public Message(int matin, int midi, int soir)
@@ -30,25 +31,29 @@ namespace Helloworld
         }
 
         //Modification du msg en fonction du jour et heure courante
-        public void GetHelloMessage()
+        public String GetHelloMessage(DateTime localDate)
         {
+            DayOfWeek today = localDate.DayOfWeek;
+
+            String result = " ";
+
             if (today == DayOfWeek.Saturday | today == DayOfWeek.Sunday | (today == DayOfWeek.Friday & localDate.Hour >= soir) | (today == DayOfWeek.Monday & localDate.Hour <= matin))
             {
-                Console.WriteLine("Bon week-end " + userName);
+                result ="Bon weekend " + userName;
             }
             else if (localDate.Hour > soir | localDate.Hour < matin)
             {
-                Console.WriteLine("Bonsoir " + userName + "\n" + localDate.ToString("F"));
+                result = "Bonsoir " + userName + "\n" + localDate.ToString("F");
             }
-            else if (localDate.Hour >= midi | localDate.Hour < soir)
+            else if (localDate.Hour < midi)
             {
-                Console.WriteLine("Bon après-midi " + userName + "\n" + localDate.ToString("F"));
+                result = "Bonjour " + userName;
             }
             else
             {
-                Console.WriteLine("Bonjour " + userName + "\n" + localDate.ToString("F"));
+                result = "Bon après-midi " + userName + "\n" + localDate.ToString("F");
             }
-
+            return result;
         }
     }
 }
