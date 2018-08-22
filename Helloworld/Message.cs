@@ -53,7 +53,7 @@ namespace Helloworld
 
             if (today == DayOfWeek.Saturday | today == DayOfWeek.Sunday | (today == DayOfWeek.Friday & localDate.Hour >= soir) | (today == DayOfWeek.Monday & localDate.Hour <= matin))
             {
-                result = "Bon weekend " + userName;
+                result = "Bon weekend " + userName + "\n" + localDate.ToString("F");
             }
             else if (localDate.Hour > soir | localDate.Hour < matin)
             {
@@ -61,7 +61,7 @@ namespace Helloworld
             }
             else if (localDate.Hour <= midi)
             {
-                result = "Bonjour " + userName;
+                result = "Bonjour " + userName + "\n" + localDate.ToString("F");
             }
             else
             {
