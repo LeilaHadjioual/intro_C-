@@ -76,7 +76,7 @@ namespace Helloworld.Tests
         }
 
         [TestMethod()]
-        public void GetHelloMessageTest_bonsoirr()
+        public void GetHelloMessageTest_bonsoir()
         {
             DateTime date = new DateTime(2018, 08, 23, 22, 00, 00);
             Message testMsg = new Message(new FakeDateTime(date));
